@@ -1,0 +1,26 @@
+<br />
+<br />
+
+<div>
+    <button
+        mat-raised-button
+        color="primary"
+        routerLinkActive="active"
+        #rlaList="routerLinkActive"
+        [routerLink]="['list']"
+        [disabled]="rlaList.isActive"
+    >
+        List
+    </button>
+    <button
+        mat-raised-button
+        color="primary"
+        routerLinkActive="active"
+        #rlaAdd="routerLinkActive"
+        [routerLink]="['add']"
+        [disabled]="rlaAdd.isActive"
+    >
+        Add post
+    </button>
+</div>
+<router-outlet></router-outlet>

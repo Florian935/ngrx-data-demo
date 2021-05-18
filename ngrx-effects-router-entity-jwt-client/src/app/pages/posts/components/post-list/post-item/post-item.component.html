@@ -1,0 +1,10 @@
+<div class="post-container">
+    <div>ID: {{ post.id }}</div>
+    <div>Title: {{ post.title }}</div>
+    <div>Body: {{ post.body }}</div>
+    <div class="action-buttons">
+        <button mat-raised-button color="primary" [routerLink]="['edit', post.id]">Update</button>
+        <button mat-raised-button color="accent" [routerLink]="['/posts/details', post.id]">Details</button>
+        <button mat-raised-button color="warn" (click)="onDeletePost()">Delete</button>
+    </div>
+</div>
