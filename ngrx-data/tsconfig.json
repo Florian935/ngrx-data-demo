@@ -19,7 +19,8 @@
     "lib": ["es2018", "dom"],
     "paths": {
       "@app/*": ["src/app/*"],
-      "@posts/*": ["src/app/pages/posts/*"]
+      "@posts/*": ["src/app/pages/posts/*"],
+      "@home/*": ["src/app/pages/home/*"]
     }
   },
   "angularCompilerOptions": {
