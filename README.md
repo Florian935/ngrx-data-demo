@@ -2,7 +2,7 @@
 
 ## NgRx / Angular Client
 
-Goal of the client is to demonstrate how to manage the state in an Angular App by using NgRx Store, NgRx Effects, NgRx Router and NgRx Entity.
+Goal of the client is to demonstrate how to manage the state in an Angular App by using NgRx Data and NgRx Entity.
 
 ## Spring Boot Server
 
