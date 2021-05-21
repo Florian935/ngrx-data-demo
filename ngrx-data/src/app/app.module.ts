@@ -1,3 +1,4 @@
+import { PostsResolver } from './pages/posts/services/posts.resolver';
 import { entityConfig } from '@app/entity-metadata';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,6 +18,7 @@ import { AddPostComponent } from '@posts/components/add-post/add-post.component'
 import { HttpClientModule } from '@angular/common/http';
 import { PostDataService } from '@posts/services/post-data.service';
 import { POST_KEY } from '@shared/index';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -30,6 +32,7 @@ import { POST_KEY } from '@shared/index';
     ],
     imports: [
         BrowserModule,
+        ReactiveFormsModule,
         AppRoutingModule,
         HttpClientModule,
         StoreModule.forRoot({}),
@@ -37,7 +40,7 @@ import { POST_KEY } from '@shared/index';
         EffectsModule.forRoot([]),
         EntityDataModule.forRoot(entityConfig),
     ],
-    providers: [PostDataService],
+    providers: [PostDataService, PostsResolver],
     bootstrap: [AppComponent],
 })
 export class AppModule {

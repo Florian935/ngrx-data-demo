@@ -1,1 +1,26 @@
-<p>posts-list works!</p>
+<div>
+    <h3>Posts List</h3>
+    <hr />
+</div>
+
+<div>
+    <button class="btn btn-primary" [routerLink]="['add']">Add Post</button>
+</div>
+
+<table class="table table-hover table-sm">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Body</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let post of posts">
+            <td>{{ post.id }}</td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.body }}</td>
+        </tr>
+    </tbody>
+</table>

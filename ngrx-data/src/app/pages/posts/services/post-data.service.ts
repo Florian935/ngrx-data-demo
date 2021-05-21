@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IPost, POST_KEY } from '@app/shared';
+import { environment } from '@environments/environment';
 import { DefaultDataService, HttpUrlGenerator } from '@ngrx/data';
 import { Observable } from 'rxjs';
-import { environment } from '@environments/environment';
-import { map } from 'rxjs/operators';
 
 const API_BASE_URL = environment.API_BASE_URL;
 
@@ -18,10 +17,10 @@ export class PostDataService extends DefaultDataService<IPost> {
     }
 
     getAll(): Observable<Array<IPost>> {
-        return this.http.get<Array<IPost>>(`${API_BASE_URL}/posts`).pipe(
-            map((posts: Array<IPost>) => {
-                return posts;
-            })
-        );
+        return this.http.get<Array<IPost>>(`${API_BASE_URL}/posts`);
+    }
+
+    add(post: IPost): Observable<IPost> {
+        return this._http.post<IPost>(`${API_BASE_URL}/posts`, post);
     }
 }
