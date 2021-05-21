@@ -21,7 +21,8 @@
             "@app/*": ["src/app/*"],
             "@shared/*": ["src/app/shared/*"],
             "@posts/*": ["src/app/pages/posts/*"],
-            "@home/*": ["src/app/pages/home/*"]
+            "@home/*": ["src/app/pages/home/*"],
+            "@environments/*": ["src/environments/*"]
         }
     },
     "angularCompilerOptions": {

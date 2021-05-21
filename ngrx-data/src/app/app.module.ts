@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
 import { HomeComponent } from '@home/components/home.component';
-import { EntityDataModule } from '@ngrx/data';
+import { EntityDataModule, EntityDataService } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -15,6 +15,8 @@ import { PostsComponent } from '@posts/components/posts.component';
 import { environment } from 'src/environments/environment';
 import { AddPostComponent } from '@posts/components/add-post/add-post.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PostDataService } from '@posts/services/post-data.service';
+import { POST_KEY } from '@shared/index';
 
 @NgModule({
     declarations: [
@@ -35,7 +37,14 @@ import { HttpClientModule } from '@angular/common/http';
         EffectsModule.forRoot([]),
         EntityDataModule.forRoot(entityConfig),
     ],
-    providers: [],
+    providers: [PostDataService],
     bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+    constructor(
+        private _entityDataService: EntityDataService,
+        private _postDataService: PostDataService
+    ) {
+        _entityDataService.registerService(POST_KEY, _postDataService);
+    }
+}
