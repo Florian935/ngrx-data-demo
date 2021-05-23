@@ -1,8 +1,7 @@
-import { Observable } from 'rxjs';
-import { PostService } from './../../services/post.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IPost } from '@app/shared';
 import { Nullable } from '@app/shared/types/nullable';
+import { PostService } from './../../services/post.service';
 
 @Component({
     selector: 'app-posts-list',

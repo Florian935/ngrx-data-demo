@@ -26,13 +26,16 @@ export class EditPostComponent implements OnInit {
             title: ['', [Validators.required]],
             body: ['', [Validators.required]],
         });
+
         this.id = this._route.snapshot.params.id;
-        this._postService.entities$.subscribe((posts: IPost[]) => {
-            const post = posts.find((post: IPost) => post.id === this.id);
-            this.editPostForm.patchValue({
-                title: post?.title,
-                body: post?.body,
-            });
+        this._postService.entities$.subscribe((posts: Array<IPost>) => {
+            if (posts.length) {
+                const post = posts.find((post: IPost) => post.id === this.id);
+                this.editPostForm.patchValue({
+                    title: post?.title,
+                    body: post?.body,
+                });
+            }
         });
     }
 

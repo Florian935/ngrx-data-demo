@@ -29,6 +29,12 @@
                 >
                     Edit Post</button
                 >&nbsp;
+                <button
+                    class="btn btn-success"
+                    [routerLink]="['details', post.id]"
+                >
+                    View details</button
+                >&nbsp;
                 <button class="btn btn-danger" (click)="onDeletePost(post.id)">
                     Delete Post
                 </button>

@@ -15,8 +15,16 @@ const routes: Routes = [
         resolve: { posts: PostsResolver },
     },
     { path: 'posts/add', component: AddPostComponent },
-    { path: 'posts/edit/:id', component: EditPostComponent },
-    { path: 'posts/details/:id', component: DetailsPostComponent },
+    {
+        path: 'posts/edit/:id',
+        component: EditPostComponent,
+        resolve: { posts: PostsResolver },
+    },
+    {
+        path: 'posts/details/:id',
+        component: DetailsPostComponent,
+        resolve: { posts: PostsResolver },
+    },
 ];
 
 @NgModule({
