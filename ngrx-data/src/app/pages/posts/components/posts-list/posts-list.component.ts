@@ -13,4 +13,10 @@ export class PostsListComponent {
     @Input() posts: Nullable<Array<IPost>>;
 
     constructor(private _postService: PostService) {}
+
+    onDeletePost(id: string): void {
+        if (confirm('Are you sure you want to delete the post ?')) {
+            this._postService.delete(id);
+        }
+    }
 }

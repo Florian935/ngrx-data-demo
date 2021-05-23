@@ -29,7 +29,9 @@
                 >
                     Edit Post</button
                 >&nbsp;
-                <button class="btn btn-danger">Delete Post</button>
+                <button class="btn btn-danger" (click)="onDeletePost(post.id)">
+                    Delete Post
+                </button>
             </td>
         </tr>
     </tbody>

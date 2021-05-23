@@ -5,6 +5,7 @@ import { environment } from '@environments/environment';
 import { DefaultDataService, HttpUrlGenerator } from '@ngrx/data';
 import { Update } from '@ngrx/entity';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 const API_BASE_URL = environment.API_BASE_URL;
 
@@ -29,5 +30,13 @@ export class PostDataService extends DefaultDataService<IPost> {
         return this._http.put<IPost>(`${API_BASE_URL}/posts/${post.id}`, {
             ...post.changes,
         });
+    }
+
+    delete(id: string): Observable<string> {
+        return this._http.delete<string>(`${API_BASE_URL}/posts/${id}`).pipe(
+            map((voidResult) => {
+                return id;
+            })
+        );
     }
 }
