@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { IPost, POST_KEY } from '@app/shared';
 import { environment } from '@environments/environment';
 import { DefaultDataService, HttpUrlGenerator } from '@ngrx/data';
+import { Update } from '@ngrx/entity';
 import { Observable } from 'rxjs';
 
 const API_BASE_URL = environment.API_BASE_URL;
@@ -22,5 +23,11 @@ export class PostDataService extends DefaultDataService<IPost> {
 
     add(post: IPost): Observable<IPost> {
         return this._http.post<IPost>(`${API_BASE_URL}/posts`, post);
+    }
+
+    update(post: Update<IPost>): Observable<IPost> {
+        return this._http.put<IPost>(`${API_BASE_URL}/posts/${post.id}`, {
+            ...post.changes,
+        });
     }
 }
